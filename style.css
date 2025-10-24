@@ -122,3 +122,123 @@ a:hover {
     max-width: 100%;
   }
 }
+
+/* ==== LISTA DE CHAMADOS ==== */
+.chamados {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-chamados {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-chamados h2 {
+  font-size: 1.2rem;
+}
+
+.header-chamados button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #d400f9;
+  border-radius: 10px;
+  color: #fff;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header-chamados button:hover {
+  background: #d400f9;
+}
+
+.chamados ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chamados li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+}
+
+/* status bolinhas */
+.status {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.verde { background: #00ff00; }
+.azul { background: #00b3ff; }
+.amarelo { background: #ffcc00; }
+.laranja { background: #ff7300; }
+.branco { background: #fff; }
+.preto { background: #111; }
+.cinza { background: #777; }
+
+/* ==== MODAL ==== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.modal.ativo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px 40px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-content textarea {
+  height: 80px;
+  resize: none;
+}
+
+.modal-content button.fechar {
+  margin-top: 10px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid #ff49c2;
+  color: #ff49c2;
+}
+
+.modal-content button.fechar:hover {
+  background: #ff49c2;
+  color: #fff;
+}
