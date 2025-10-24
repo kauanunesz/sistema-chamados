@@ -13,24 +13,24 @@
     </section>
 
     <section class="right">
-      <form>
+    <form action="../php/cad_usuario.php" method="post">
         <label for="nome">Nome completo</label>
-        <input type="text" id="nome" required>
+        <input type="text" id="nome" name="nome" required>
 
         <label for="email">Email</label>
-        <input type="email" id="email" required>
+        <input type="email" id="email" name="email" required>
 
         <label for="senha">Senha</label>
-        <input type="password" id="senha" required>
+        <input type="password" id="senha" name="senha" required>
 
         <label for="confirma">Confirmar senha</label>
-        <input type="password" id="confirma" required>
+        <input type="password" id="confirma" name="confirma" required>
 
         <label for="celular">Celular</label>
-        <input type="tel" id="celular" required>
+        <input type="tel" id="celular" name="celular" required>
 
         <label for="cargo">Cargo</label>
-        <select name="cargo" id="cargo" required>
+        <select name="cargo" id="cargo" name="cargo" required>
             <option value="#"></option>
         </select>
 

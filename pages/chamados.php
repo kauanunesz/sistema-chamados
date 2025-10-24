@@ -13,6 +13,7 @@
         <h2>Chamados</h2>
         <button id="btnNovo">+ Novo Chamado</button>
       </div>
+
       <ul>
         <li><span class="status verde"></span> Novo</li>
         <li><span class="status azul"></span> Em atendimento (Atribuído)</li>
