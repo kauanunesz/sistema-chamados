@@ -20,7 +20,7 @@
         <label for="senha">senha</label>
         <input type="password" id="senha" required>
 
-        <button type="submit">LOGIN</button>
+        <button type="submit" onclick="location.href='pages/chamados.php'">LOGIN</button>
 
         <p>não tem uma conta? <a href="pages/cadastro.php">cadastre-se</a></p>
       </form>
