@@ -29,9 +29,11 @@
         <label for="celular">Celular</label>
         <input type="tel" id="celular" name="celular" required>
 
-        <label for="cargo">Cargo</label>
-        <select name="cargo" id="cargo" name="cargo" required>
-            <option value="#"></option>
+        <label for="setor">Setor</label>
+        <select name="setor" id="setor" required>
+            <option value="financeiro">Financeiro</option>
+            <option value="administrativo">Administrativo</option>
+            <option value="ti">TI</option>
         </select>
 
         <button type="submit">cadastre-se</button>

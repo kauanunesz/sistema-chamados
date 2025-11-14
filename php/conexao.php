@@ -2,7 +2,7 @@
     $server = "localhost";
     $user = "root";
     $password = "admin";
-    $database = "db_chamada";
+    $database = "db_chamados";
     
     $conexao = new mysqli($server, $user, $password, $database);
 
@@ -10,4 +10,3 @@
         echo "falha na conexão";
     }
 ?>
-

@@ -14,11 +14,10 @@
 
     <section class="right">
       <form action="pages/chamados.php" method="post">
-        <label for="email">
-        </label>
+        <label for="email">E-mail</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="senha">senha</label>
+        <label for="senha">Senha</label>
         <input type="password" id="senha" required>
         <button type="submit" onclick="location.href='pages/chamados.php'">LOGIN</button>        
 
