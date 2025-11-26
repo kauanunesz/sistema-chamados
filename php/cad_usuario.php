@@ -6,7 +6,7 @@ include 'conexao.php';
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmarSenha = $_POST['confirmarSenha'];
-    $celular = $_POST['celular'];
+    $telefone = $_POST['telefone'];
     $setor = $_POST['setor'];
 
     if ($senha !== $confirmarSenha) 
@@ -18,7 +18,7 @@ include 'conexao.php';
         exit;
     }
     
-    $insert = "INSERT INTO user values (null, '$nome', '$email', '$senha', '$celular', '$setor')";
+    $insert = "INSERT INTO user values (null, '$nome', '$email', '$senha', '$telefone', '$setor')";
     
     $query = $conexao->query($insert);
 

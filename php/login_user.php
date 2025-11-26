@@ -11,7 +11,4 @@
 
     $email_banco = $resultado['email'];
     $senha_banco = $resultado['senha'];
-
-    print_r($email_form, $senha_form);
-    print_r($email_banco, $senha_banco);
 ?>
