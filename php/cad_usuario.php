@@ -2,14 +2,14 @@
 
 include 'conexao.php';
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $confirmarSenha = $_POST['confirmarSenha'];
-    $telefone = $_POST['telefone'];
-    $setor = $_POST['setor'];
+    $nome = isset($_POST['nome']);
+    $email = isset($_POST['email']);
+    $senha = isset($_POST['senha']);
+    $confirmarSenha = isset($_POST['confirmarSenha']);
+    $telefone = isset($_POST['telefone']);
+    $setor = isset($_POST['setor']);
 
-    if ($senha !== $confirmarSenha) 
+    if ($senha !== $confirmarSenha)
     {
         echo "<script>
         alert('Senhas não coincidem. Tente novamente!');
@@ -18,7 +18,11 @@ include 'conexao.php';
         exit;
     }
     
-    $insert = "INSERT INTO user values (null, '$nome', '$email', '$senha', '$telefone', '$setor')";
+    echo "<script>alert('Usuário cadastrado com sucesso!')</script>";
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+    
+
+    $insert = "INSERT INTO user values (null, '$nome', '$email', '$senha_hash', '$telefone', '$setor')";
     
     $query = $conexao->query($insert);
 
