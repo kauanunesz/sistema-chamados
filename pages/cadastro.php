@@ -20,7 +20,7 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="senha">Senha</label>
+        <label for="senha">Senh   a</label>
         <input type="password" id="senha" name="senha" required>
 
         <label for="confirma">Confirmar senha</label>
