@@ -1,23 +1,46 @@
 <?php
-include ("conexao.php");
 
-if ($_SERVER["REQUEST_METHOD" == "POST"])
-{
+include 'conexao.php';
 
-    $nome = $_POST['nome'];
-    $email =  $_POST['email'];
-    $senha = $_POST['senha'];
-    $confirmar_senha =  $_POST['confirma'];
-    $celular =  $_POST['celular'];
-    $setor =  $_POST['cargo'];
-    if ($senha !== $confirmar_senha)
-        {
-            echo "<script>alert('As senhas não coincidem!'); window.history.back();</script>";
-            exit();
-        }
-        
-    $insert = "INSERT INTO tb_user(null,'$nome','$email','$senha','$celular','$setor')"
-    $stmt = $conexao->prepare($insert);
-    $stmt->
-}
+    $nome = isset($_POST['nome']);
+    $email = isset($_POST['email']);
+    $senha = isset($_POST['senha']);
+    $confirmarSenha = isset($_POST['confirmarSenha']);
+    $telefone = isset($_POST['telefone']);
+    $setor = isset($_POST['setor']);
+
+    if ($senha !== $confirmarSenha)
+    {
+        echo "<script>
+        alert('Senhas não coincidem. Tente novamente!');
+        window.history.back();
+        </script>";
+        exit;
+    }
+    
+    echo "<script>alert('Usuário cadastrado com sucesso!')</script>";
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+    
+
+    $insert = "INSERT INTO user values (null, '$nome', '$email', '$senha_hash', '$telefone', '$setor')";
+    
+    $query = $conexao->query($insert);
+
+    if ($query)
+    {    
+        echo "<script> 
+        alert ('Usuário cadastrado com sucesso!');
+        location.href='../index.php';
+        </script>";
+    }
+    else
+    {
+        echo "<script> 
+        alert ('Erro ao cadastrar');
+        </script>";
+    }
+    
+    //função para inserir os dados do usario
+    
+    
 ?>
