@@ -10,4 +10,16 @@ create table user(
     setor varchar(50)	
 );
 
-select * from user;
+CREATE TABLE chamados (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  tipo VARCHAR(50),
+  categoria VARCHAR(100),
+  urgencia VARCHAR(50),
+  titulo VARCHAR(255) NOT NULL,
+  descricao TEXT NOT NULL,
+  status VARCHAR(30) DEFAULT 'novo',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(id)
+);

@@ -3,52 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Sistema • Home</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="../style.css">
+
+  <!-- Ícones (opcional) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
 </head>
+
 <body>
   <main class="home-container">
 
+    <!-- Topbar -->
     <header class="topbar">
       <div class="logo">🌀</div>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Chamados</a>
+
+      <nav class="menu">
+        <a href="home.html" class="active">Home</a>
+        <a href="chamados.html">Chamados</a>
         <a href="#">Reservas</a>
         <a href="#">FAQ</a>
       </nav>
-      <button class="novo-chamado">+ Novo Chamado</button>
+
+      <button class="btn novo-chamado">
+        <i class="ri-add-line"></i> Novo Chamado
+      </button>
     </header>
 
+    <!-- Dashboard -->
     <section class="dashboard">
-      <h1>Bem-vindo de volta!</h1>
+      <h1>Bem-vindo de volta, <span>Usuário</span>!</h1>
       <p class="subtitle">Gerencie seus chamados e reservas facilmente.</p>
 
+      <!-- Cards -->
       <div class="cards">
         <div class="card">
           <h3>Total de Chamados</h3>
           <p class="numero">24</p>
         </div>
+
         <div class="card">
           <h3>Em Atendimento</h3>
           <p class="numero">8</p>
         </div>
+
         <div class="card">
           <h3>Solucionados</h3>
           <p class="numero">12</p>
         </div>
+
         <div class="card">
           <h3>Pendentes</h3>
           <p class="numero">4</p>
         </div>
       </div>
 
+      <!-- Ações -->
       <div class="acoes">
-        <button>Ver Chamados</button>
-        <button>Criar Chamado</button>
+        <a href="chamados.html" class="btn">Ver Chamados</a>
       </div>
     </section>
-
   </main>
 </body>
 </html>
