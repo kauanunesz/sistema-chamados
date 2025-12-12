@@ -20,6 +20,5 @@ CREATE TABLE chamados (
   descricao TEXT NOT NULL,
   status VARCHAR(30) DEFAULT 'novo',
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT NULL,
   FOREIGN KEY (user_id) REFERENCES user(id)
 );

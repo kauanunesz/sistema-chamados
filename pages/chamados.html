@@ -26,37 +26,45 @@
     </section>
   </main>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <h2>Descreva seu chamado</h2>
-      <form action="" method="post">
-        <label>Tipo</label>
-        <select>
-          <option>Selecione</option>
-        </select>
+<div id="modal" class="modal" aria-hidden="true" style="display:none;">
+  <div class="modal-content" role="dialog" aria-modal="true">
+    <h2>Novo Chamado</h2>
 
-        <label>Categoria</label>
-        <select>
-          <option>Selecione</option>
-        </select>
+    <form id="formChamado" action="../php/criar_chamado.php" method="post">
+      <label>Tipo</label>
+      <select name="tipo">
+        <option value="">--</option>
+        <option value="suporte">Suporte</option>
+        <option value="manutencao">Manutenção</option>
+      </select>
 
-        <label>Urgência</label>
-        <select>
-          <option>Selecione</option>
-        </select>
+      <label>Categoria</label>
+      <select name="categoria">
+        <option value="">--</option>
+        <option value="hardware">Hardware</option>
+        <option value="software">Software</option>
+      </select>
 
-        <label>Título</label>
-        <input type="text">
+      <label>Urgência</label>
+      <select name="urgencia">
+        <option value="baixa">Baixa</option>
+        <option value="media">Média</option>
+        <option value="alta">Alta</option>
+      </select>
 
-        <label>Descrição</label>
-        <textarea></textarea>
+      <label>Título</label>
+      <input type="text" name="titulo" required>
 
-        <button type="submit">Enviar chamado</button>
-      </form>
-      <button class="fechar" id="btnFechar">Fechar</button>
-    </div>
+      <label>Descrição</label>
+      <textarea name="descricao" required></textarea>
+
+      <button type="submit">Enviar chamado</button>
+    </form>
+
+    <button id="btnFechar" class="fechar">Fechar</button>
   </div>
+</div>
+
   <script src="script.js"></script>
 </body>
 </html>

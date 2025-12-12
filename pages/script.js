@@ -1,69 +1,39 @@
-const btnNovo = document.getElementById('btnNovo');
-const modal = document.getElementById('modal');
-const btnFechar = document.getElementById('btnFechar');
-const formChamado = document.getElementById('formChamado');
+document.addEventListener('DOMContentLoaded', () => {
+  const btnNovo = document.getElementById('btnNovo');
+  const modal = document.getElementById('modal');
+  const btnFechar = document.getElementById('btnFechar');
 
-btnNovo.addEventListener('click', () => modal.classList.add('ativo'));
-btnFechar.addEventListener('click', () => modal.classList.remove('ativo'));
-window.addEventListener('click', e => {
-    if (e.target === modal) modal.classList.remove('ativo');
-});
+  if (!btnNovo)   console.warn('Elemento #btnNovo não encontrado');
+  if (!modal)     console.warn('Elemento #modal não encontrado');
+  if (!btnFechar) console.warn('Elemento #btnFechar não encontrado');
 
-// ---------- SUBMIT VIA AJAX ----------
-formChamado.addEventListener('submit', async (e) => {
-    e.preventDefault();                      // evita o submit normal
-    const submitBtn = formChamado.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
+  if (!btnNovo || !modal || !btnFechar) return;
 
-    // coletar dados do form
-    const formData = new FormData(formChamado);
+  const openModal = () => {
+    modal.classList.add('ativo');
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+    // opcional: focar primeiro campo
+    const first = modal.querySelector('input, select, textarea, button');
+    if (first) first.focus();
+  };
 
-    // (opcional) validação básica no cliente
-    if (!formData.get('titulo') || !formData.get('descricao')) {
-        alert('Preencha título e descrição.');
-        return;
+  const closeModal = () => {
+    modal.classList.remove('ativo');
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+  };
+
+  btnNovo.addEventListener('click', openModal);
+  btnFechar.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('ativo')) {
+      closeModal();
     }
-
-    try {
-        // feedback ao usuário
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Enviando...';
-
-        // envio via fetch (POST) para o endpoint PHP
-        const resp = await fetch('/php/criar_chamado.php', {
-            method: 'POST',
-            body: formData,
-            credentials: 'same-origin' // envia cookies de sessão se houver
-        });
-
-        // checa status HTTP
-        if (!resp.ok) throw new Error('Erro de rede: ' + resp.status);
-
-        const data = await resp.json();
-
-        if (data.success) {
-            // sucesso: atualiza UI, fecha modal, limpa form
-            modal.classList.remove('ativo');
-            formChamado.reset();
-
-            // exemplo: adicionar item novo à lista (simples)
-            const lista = document.querySelector('.chamados ul') || null;
-            if (lista) {
-                const li = document.createElement('li');
-                li.innerHTML = `<span class="status verde"></span> ${data.chamado.titulo} <small>(Novo)</small>`;
-                lista.prepend(li);
-            }
-
-            alert('Chamado criado com sucesso!');
-        } else {
-            // caso o PHP retorne success=false
-            alert(data.message || 'Erro ao criar chamado');
-        }
-    } catch (err) {
-        console.error(err);
-        alert('Erro ao enviar chamado. Veja console.');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-    }
+  });
 });
